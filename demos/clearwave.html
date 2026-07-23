@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clearwave Pool Care — Blue Water, Zero Effort · Orlando</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F4F0E7; --paper2:#FBF9F3; --ink:#0C2E33; --mut:#5B7378;
+  --aqua:#07AEC4; --deep:#0A5866; --line:rgba(12,46,51,.12);
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);
+  font-family:"Figtree",system-ui,-apple-system,sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden}
+::selection{background:var(--aqua);color:#04252B}
+.serif{font-family:"Fraunces",Georgia,serif;font-style:italic;font-weight:500}
+
+/* film grain */
+body::after{content:"";position:fixed;inset:0;z-index:999;pointer-events:none;opacity:.035;
+background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+
+.wrap{width:min(1200px,92vw);margin:0 auto}
+.label{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--mut);font-weight:600}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+
+/* ============ NAV ============ */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(244,240,231,.65);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line)}
+.nav.solid{}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:66px}
+.logo{display:flex;align-items:center;gap:9px;font-weight:800;letter-spacing:-.01em;font-size:19px;text-decoration:none;color:var(--ink)}
+.logo svg{width:22px;height:22px;flex:none}
+.nav-links{display:flex;gap:34px}
+.nav-links a{color:var(--mut);text-decoration:none;font-size:14px;font-weight:500;transition:color .3s}
+.nav-links a:hover{color:var(--ink)}
+.pillwrap{position:relative;border-radius:99px;padding:1.5px;overflow:hidden}
+.pillwrap::before{content:"";position:absolute;inset:-100%;
+  background:conic-gradient(from 0deg,transparent 0 40%,var(--aqua) 50%,transparent 60% 100%);
+  animation:spin 3.5s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.pill{position:relative;display:inline-block;background:var(--ink);color:var(--paper);
+  border-radius:99px;padding:11px 22px;font-size:14px;font-weight:600;text-decoration:none;transition:background .3s}
+.pill:hover{background:#0A2429}
+
+/* ============ HERO ============ */
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;
+  background:linear-gradient(175deg,#0C6373 0%,#084C5A 45%,#063946 100%)}
+.water{position:absolute;inset:0;overflow:hidden}
+.caustics{position:absolute;inset:-10%;width:120%;height:120%;mix-blend-mode:screen;opacity:.55;
+  animation:causticDrift 22s ease-in-out infinite alternate}
+@keyframes causticDrift{to{transform:translate(-4%,-3%) scale(1.08)}}
+.glow{position:absolute;border-radius:50%;filter:blur(70px);mix-blend-mode:screen;pointer-events:none}
+.g1{width:46vw;height:46vw;left:-6vw;top:-8vw;background:rgba(120,238,255,.28);animation:float1 17s ease-in-out infinite alternate}
+.g2{width:40vw;height:40vw;right:-8vw;top:18vh;background:rgba(80,205,230,.22);animation:float2 21s ease-in-out infinite alternate}
+.g3{width:38vw;height:38vw;left:28vw;bottom:-14vw;background:rgba(180,255,245,.16);animation:float1 25s ease-in-out infinite alternate}
+@keyframes float1{to{transform:translate(6vw,4vh) scale(1.12)}}
+@keyframes float2{to{transform:translate(-5vw,-3vh) scale(1.15)}}
+.hero-vig{position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(120% 90% at 50% 20%,transparent 40%,rgba(4,30,36,.55))}
+.rail{position:absolute;right:3vw;top:50%;transform:translateY(-50%);z-index:3;
+  writing-mode:vertical-rl;font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+.hero-in{position:relative;z-index:3;padding-top:66px;color:#fff}
+h1{font-size:clamp(3rem,9.4vw,7rem);line-height:.96;letter-spacing:-.035em;font-weight:800;max-width:13ch}
+h1 .serif{font-weight:400;letter-spacing:-.01em}
+.hero-sub{margin-top:26px;max-width:46ch;color:rgba(255,255,255,.82);font-size:clamp(16px,1.6vw,19px)}
+.hero-cta{margin-top:38px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.btn{display:inline-block;border-radius:99px;padding:16px 32px;font-weight:600;font-size:15px;
+  text-decoration:none;position:relative;overflow:hidden;transition:transform .35s var(--ease);cursor:pointer;border:0}
+.btn span{position:relative;z-index:1}
+.btn:hover{transform:translateY(-2px)}
+.btn-light{background:#fff;color:var(--deep)}
+.btn-light::before{content:"";position:absolute;inset:0;background:var(--aqua);transform:translateX(-101%);transition:transform .45s var(--ease)}
+.btn-light:hover::before{transform:none}
+.btn-light:hover span{color:#04252B}
+.btn-dark{background:var(--ink);color:var(--paper)}
+.btn-dark::before{content:"";position:absolute;inset:0;background:var(--aqua);transform:translateX(-101%);transition:transform .45s var(--ease)}
+.btn-dark:hover::before{transform:none}
+.btn-dark:hover span{color:#04252B}
+.ghostlink{color:#fff;text-decoration:none;font-size:14px;font-weight:600;
+  border-bottom:1px solid rgba(255,255,255,.4);padding-bottom:3px;transition:border-color .3s}
+.ghostlink i{font-style:normal;display:inline-block;transition:transform .35s var(--ease)}
+.ghostlink:hover i{transform:translateX(5px)}
+.wave{position:absolute;left:0;bottom:-1px;width:100%;height:clamp(60px,9vw,120px);z-index:2;display:block}
+/* hero load stagger */
+.hload{opacity:0;transform:translateY(26px);animation:hup 1s var(--ease) forwards}
+.hl2{animation-delay:.15s}.hl3{animation-delay:.3s}.hl4{animation-delay:.42s}
+@keyframes hup{to{opacity:1;transform:none}}
+
+/* ============ MARQUEE ============ */
+.mq{overflow:hidden;padding:22px 0;border-bottom:1px solid var(--line);background:var(--paper)}
+.mq-track{display:flex;width:max-content;animation:mqscroll 30s linear infinite}
+.mq:hover .mq-track{animation-play-state:paused}
+.mq-track span{font-size:clamp(1rem,2vw,1.5rem);font-weight:700;letter-spacing:.02em;white-space:nowrap;padding:0 20px;color:var(--ink);display:flex;align-items:center;gap:20px}
+.mq-track span::after{content:"";width:7px;height:7px;border-radius:50%;background:var(--aqua)}
+.mq-track .o{color:transparent;-webkit-text-stroke:1px rgba(12,46,51,.32)}
+@keyframes mqscroll{to{transform:translateX(-50%)}}
+
+/* ============ SERVICES ============ */
+.services{padding:clamp(5rem,12vh,9rem) 0}
+.sec-head{max-width:34ch;margin-bottom:52px}
+h2{font-size:clamp(2rem,5.2vw,3.5rem);line-height:1.05;letter-spacing:-.025em;font-weight:700}
+h2 .serif{color:var(--deep);font-weight:400}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:var(--paper2);border:1px solid var(--line);border-radius:22px;padding:32px 28px;
+  position:relative;overflow:hidden;transition:transform .5s var(--ease),border-color .5s,box-shadow .5s}
+.card:hover{transform:translateY(-6px);border-color:rgba(7,174,196,.4);box-shadow:0 24px 50px -28px rgba(10,88,102,.4)}
+.card .ic{width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;
+  background:rgba(7,174,196,.12);color:var(--deep);margin-bottom:20px}
+.card .ic svg{width:24px;height:24px}
+.card h3{font-size:1.32rem;font-weight:700;letter-spacing:-.01em;margin-bottom:8px}
+.card p{color:var(--mut);font-size:15px}
+.card.big{grid-column:span 3;display:grid;grid-template-columns:1.1fr 1fr;gap:34px;align-items:center;
+  background:linear-gradient(120deg,var(--deep),#0C6373);border-color:transparent}
+.card.big .ic{background:rgba(255,255,255,.14);color:#fff}
+.card.big h3,.card.big p{color:#fff}
+.card.big p{color:rgba(255,255,255,.82)}
+.card.big:hover{transform:translateY(-6px);box-shadow:0 30px 60px -30px rgba(10,88,102,.6)}
+.checklist{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:12px 26px}
+.checklist li{display:flex;gap:11px;align-items:flex-start;font-size:14.5px;color:#fff;font-weight:500}
+.checklist .chk{flex:none;width:20px;height:20px;border-radius:50%;background:rgba(255,255,255,.16);
+  display:flex;align-items:center;justify-content:center;margin-top:2px}
+.checklist .chk svg{width:12px;height:12px;color:#8FF6FF}
+
+/* ============ PLANS ============ */
+.plans{padding:clamp(4rem,10vh,7rem) 0;background:var(--paper2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px;align-items:stretch}
+.plan{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:34px 30px;
+  display:flex;flex-direction:column;position:relative;transition:transform .5s var(--ease),box-shadow .5s}
+.plan:hover{transform:translateY(-5px);box-shadow:0 24px 50px -30px rgba(10,88,102,.35)}
+.plan.feat{background:linear-gradient(170deg,#0C6373,#063946);color:#fff;border-color:transparent}
+.plan .pn{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--deep)}
+.plan.feat .pn{color:#8FF6FF}
+.badge{position:absolute;top:20px;right:20px;font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  background:var(--aqua);color:#04252B;padding:6px 12px;border-radius:99px}
+.price{font-size:clamp(2.4rem,4.5vw,3.2rem);font-weight:800;letter-spacing:-.03em;margin:18px 0 4px;line-height:1}
+.price small{font-size:15px;font-weight:600;color:var(--mut)}
+.plan.feat .price small{color:rgba(255,255,255,.7)}
+.plan .pd{font-size:14px;color:var(--mut);margin-bottom:20px}
+.plan.feat .pd{color:rgba(255,255,255,.8)}
+.plan ul{list-style:none;display:flex;flex-direction:column;gap:11px;margin-bottom:26px;flex:1}
+.plan li{display:flex;gap:10px;font-size:14.5px;align-items:flex-start}
+.plan li svg{width:17px;height:17px;flex:none;margin-top:3px;color:var(--aqua)}
+.plan.feat li svg{color:#8FF6FF}
+.plan .btn{text-align:center}
+.plans-note{margin-top:16px;font-size:12px;color:var(--mut)}
+
+/* ============ STATS ============ */
+.stats{padding:clamp(5rem,12vh,9rem) 0}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);
+  border:1px solid var(--line);border-radius:22px;overflow:hidden}
+.stat{background:var(--paper2);padding:42px 28px}
+.stat-n{font-size:clamp(2.3rem,4.6vw,3.6rem);font-weight:800;letter-spacing:-.03em;line-height:1;color:var(--ink)}
+.stat-n em{font-style:normal;color:var(--aqua)}
+.stat-l{margin-top:9px;font-size:13.5px;color:var(--mut)}
+.stats-note{margin-top:14px;font-size:12px;color:var(--mut)}
+
+/* ============ REVIEWS ============ */
+.reviews{padding:0 0 clamp(5rem,12vh,9rem)}
+.rev-grid{display:grid;grid-template-columns:7fr 5fr;gap:18px}
+.rev{background:var(--paper2);border:1px solid var(--line);border-radius:22px;padding:36px;transition:transform .5s var(--ease),border-color .5s}
+.rev:hover{transform:translateY(-6px);border-color:rgba(7,174,196,.35)}
+.rev-q{font-family:"Fraunces",Georgia,serif;font-style:italic;font-size:clamp(1.3rem,2.4vw,1.85rem);line-height:1.36;color:var(--ink)}
+.rev-a{margin-top:20px;font-size:13px;color:var(--mut)}
+.rev-a b{color:var(--ink);font-weight:700}
+.stars{color:var(--aqua);letter-spacing:3px;font-size:14px;margin-bottom:15px}
+
+/* ============ CLOSE ============ */
+.close{position:relative;overflow:hidden;color:#fff;
+  background:linear-gradient(160deg,#0C6373,#063946);
+  min-height:80svh;display:flex;align-items:center}
+.close .caustics{opacity:.4}
+.close-vig{position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 30%,transparent 45%,rgba(4,30,36,.5));pointer-events:none}
+.close-in{position:relative;z-index:3}
+.close h2{font-size:clamp(2.6rem,7.5vw,5.4rem);max-width:15ch;color:#fff}
+.close h2 .serif{color:#8FF6FF}
+.tel{display:inline-block;margin-top:34px;font-size:clamp(1.7rem,4.5vw,3rem);font-weight:700;color:#fff;
+  text-decoration:none;letter-spacing:-.02em;position:relative}
+.tel::after{content:"";position:absolute;left:0;bottom:-6px;height:2px;width:100%;background:#8FF6FF;
+  transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
+.tel:hover::after{transform:scaleX(1)}
+.close-cta{margin-top:40px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.close-ghost{position:absolute;left:50%;bottom:-3.5vw;transform:translateX(-50%);z-index:1;
+  font-weight:800;font-size:clamp(4rem,17vw,15rem);letter-spacing:-.02em;line-height:1;
+  color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.14);white-space:nowrap;pointer-events:none}
+footer{background:var(--ink);color:rgba(255,255,255,.6);padding:26px 0}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;font-size:12.5px}
+footer a{color:rgba(255,255,255,.8);text-decoration:none}
+footer a:hover{color:#fff}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:860px){
+  .svc-grid{grid-template-columns:1fr 1fr}
+  .card.big{grid-column:span 2;grid-template-columns:1fr}
+  .plan-grid{grid-template-columns:1fr}
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .rev-grid{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  .nav-links{display:none}
+  .rail{display:none}
+  .svc-grid{grid-template-columns:1fr}
+  .card.big{grid-column:span 1}
+  .checklist{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .rv,.hload{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<!-- reusable SVG defs: caustic water filter -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="causticFilter">
+    <feTurbulence type="fractalNoise" baseFrequency="0.012 0.018" numOctaves="2" seed="6" result="noise">
+      <animate attributeName="baseFrequency" dur="18s" values="0.012 0.018;0.017 0.013;0.012 0.018" repeatCount="indefinite"/>
+    </feTurbulence>
+    <feColorMatrix in="noise" type="matrix"
+      values="0 0 0 0 0.42
+              0 0 0 0 0.93
+              0 0 0 0 1.0
+              0 0 0 -1.55 1.15"/>
+  </filter>
+</svg>
+
+<nav>
+  <div class="wrap nav-in">
+    <a class="logo" href="#">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M2 15c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 5 2" stroke="#07AEC4" stroke-width="2.2" stroke-linecap="round"/><path d="M2 20c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 5 2" stroke="#0A5866" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="6" r="3" stroke="#07AEC4" stroke-width="2.2"/></svg>
+      Clearwave
+    </a>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#plans">Plans</a>
+      <a href="#proof">Proof</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <span class="pillwrap"><a class="pill" href="#contact">Get a Quote</a></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="water">
+    <div class="glow g1"></div><div class="glow g2"></div><div class="glow g3"></div>
+    <div class="caustics" id="caustics" style="filter:url(#causticFilter)"></div>
+    <div class="hero-vig"></div>
+  </div>
+  <div class="rail">EST. 2017 — ORLANDO, FL</div>
+  <div class="wrap hero-in">
+    <p class="label hload" style="color:rgba(255,255,255,.7)">Weekly Pool Care · No Contracts</p>
+    <h1 class="hload hl2" style="margin-top:20px">Come home to <span class="serif">blue.</span></h1>
+    <p class="hero-sub hload hl3">Weekly service, balanced water, and a photo report texted to you after
+      every visit. You just swim — we handle the rest.</p>
+    <div class="hero-cta hload hl4">
+      <a class="btn btn-light" href="#contact"><span>Get a Quote</span></a>
+      <a class="ghostlink" href="#services">See what's included <i>→</i></a>
+    </div>
+  </div>
+  <svg class="wave" viewBox="0 0 1440 120" preserveAspectRatio="none"><path fill="var(--paper)" d="M0,60 C240,112 480,18 720,44 C960,70 1200,116 1440,64 L1440,120 L0,120 Z"/></svg>
+</header>
+
+<!-- MARQUEE -->
+<div class="mq" aria-hidden="true">
+  <div class="mq-track">
+    <span>Weekly Service</span><span class="o">Chemical Balancing</span><span>Green-to-Clean</span><span class="o">Filter & Equipment</span><span>Leak Checks</span>
+    <span>Weekly Service</span><span class="o">Chemical Balancing</span><span>Green-to-Clean</span><span class="o">Filter & Equipment</span><span>Leak Checks</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="label">01 — What we do</p>
+      <h2 style="margin-top:14px">Everything the water needs. <span class="serif">Nothing you have to think about.</span></h2>
+    </div>
+    <div class="svc-grid">
+      <div class="card rv">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3c3.5 4 6 6.8 6 10a6 6 0 1 1-12 0c0-3.2 2.5-6 6-10z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div>
+        <h3>Chemistry, dialed</h3>
+        <p>Chlorine, pH, alkalinity, and stabilizer tested and balanced every visit — so the water stays clear, safe, and gentle on skin.</p>
+      </div>
+      <div class="card rv d1">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M4 7h16M6 7l1 12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-12M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Cleaning & brushing</h3>
+        <p>Skim, net, brush the walls and tile line, vacuum the floor, and empty the baskets. The stuff that eats your Saturday — gone.</p>
+      </div>
+      <div class="card rv d2">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/></svg></div>
+        <h3>Equipment & repairs</h3>
+        <p>Pumps, filters, heaters, and salt cells inspected on every visit. Small fixes handled on the spot; big ones quoted before we touch a thing.</p>
+      </div>
+      <div class="card big rv">
+        <div>
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h3 style="font-size:1.6rem">Every visit, on the dot</h3>
+          <p>Same technician, same day each week. Here's the checklist they run before they leave — and text you the photo proof.</p>
+        </div>
+        <ul class="checklist">
+          <li><span class="chk"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Skim surface & net debris</li>
+          <li><span class="chk"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Brush walls & tile line</li>
+          <li><span class="chk"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Vacuum the floor</li>
+          <li><span class="chk"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Empty pump & skimmer baskets</li>
+          <li><span class="chk"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Test & balance chemistry</li>
+          <li><span class="chk"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Inspect pump, filter & heater</li>
+          <li><span class="chk"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Backwash filter as needed</li>
+          <li><span class="chk"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Photo report texted to you</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLANS -->
+<section class="plans" id="plans">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="label">02 — Plans</p>
+      <h2 style="margin-top:14px">Pick a rhythm. <span class="serif">Cancel anytime.</span></h2>
+    </div>
+    <div class="plan-grid">
+      <div class="plan rv">
+        <div class="pn">Bi-Weekly</div>
+        <div class="price">$95<small>/mo</small></div>
+        <p class="pd">Every other week. Great for screened-in and low-traffic pools.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>2 full visits a month</li>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Chemistry balanced</li>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Photo report each visit</li>
+        </ul>
+        <a class="btn btn-dark" href="#contact"><span>Get a Quote</span></a>
+      </div>
+      <div class="plan feat rv d1">
+        <span class="badge">Most popular</span>
+        <div class="pn">Weekly</div>
+        <div class="price">$155<small>/mo</small></div>
+        <p class="pd">The set-and-forget standard. Florida sun moves fast — weekly keeps it ahead.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>4 full visits a month</li>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>All chemicals included</li>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Equipment checks & minor fixes</li>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Priority scheduling</li>
+        </ul>
+        <a class="btn btn-light" href="#contact"><span>Get a Quote</span></a>
+      </div>
+      <div class="plan rv d2">
+        <div class="pn">Green-to-Clean</div>
+        <div class="price">from $250</div>
+        <p class="pd">One-time recovery for a green or neglected pool. Swim-ready, usually within days.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Deep clean & shock treatment</li>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Filter deep-clean</li>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Water clarified & balanced</li>
+        </ul>
+        <a class="btn btn-dark" href="#contact"><span>Get a Quote</span></a>
+      </div>
+    </div>
+    <p class="plans-note rv">Placeholder pricing for this demo — the live site uses your real plans and rates.</p>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats" id="proof">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="label">03 — The receipts</p>
+      <h2 style="margin-top:14px">Nine years keeping Orlando <span class="serif">clear.</span></h2>
+    </div>
+    <div class="stats-grid rv d1">
+      <div class="stat"><div class="stat-n"><span data-count="1200">0</span><em>+</em></div><div class="stat-l">Pools serviced</div></div>
+      <div class="stat"><div class="stat-n"><span data-count="9">0</span><em> yrs</em></div><div class="stat-l">In business</div></div>
+      <div class="stat"><div class="stat-n"><span data-count="4.9" data-dec="1">0</span><em>★</em></div><div class="stat-l">Average rating</div></div>
+      <div class="stat"><div class="stat-n"><span data-count="98">0</span><em>%</em></div><div class="stat-l">Stay year over year</div></div>
+    </div>
+    <p class="stats-note rv d2">Placeholder figures for this demo — the live site pulls your real numbers.</p>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews">
+  <div class="wrap">
+    <div class="rev-grid">
+      <div class="rev rv">
+        <div class="stars">★★★★★</div>
+        <p class="rev-q">"We went from testing strips every weekend to literally never thinking about the pool. The Friday photo text is my favorite part."</p>
+        <p class="rev-a"><b>The Hollands</b> — Winter Park, weekly plan <span style="opacity:.6">(placeholder review)</span></p>
+      </div>
+      <div class="rev rv d1">
+        <div class="stars">★★★★★</div>
+        <p class="rev-q">"Green pool to swim-ready in three days after we moved in."</p>
+        <p class="rev-a"><b>J. Marsh</b> — Lake Nona, green-to-clean <span style="opacity:.6">(placeholder review)</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSE -->
+<section class="close" id="contact">
+  <div class="water">
+    <div class="glow g1"></div><div class="glow g2"></div>
+    <div class="caustics" style="filter:url(#causticFilter)"></div>
+    <div class="close-vig"></div>
+  </div>
+  <div class="close-ghost">CLEARWAVE</div>
+  <div class="wrap close-in">
+    <p class="label rv" style="color:rgba(255,255,255,.7)">04 — Let's talk</p>
+    <h2 class="rv d1" style="margin-top:14px">Life's better <span class="serif">by the water.</span></h2>
+    <a class="tel rv d2" href="tel:+14075550188">(407) 555-0188</a>
+    <div class="close-cta rv d3">
+      <a class="btn btn-light" href="tel:+14075550188"><span>Get a Free Quote</span></a>
+      <a class="ghostlink" href="mailto:hello@clearwavepools.com">hello@clearwavepools.com <i>→</i></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <span>© 2026 Clearwave Pool Care — Orlando, FL. Demo site; details are placeholders.</span>
+    <span>Site by <a href="https://www.icmdglobal.com">ICMD</a></span>
+  </div>
+</footer>
+
+<script>
+// scroll reveal
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.14});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+// gentle pointer parallax on hero caustics (desktop, respects reduced motion)
+const caustics=document.getElementById('caustics');
+const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+if(caustics&&!reduce&&matchMedia('(pointer:fine)').matches){
+  addEventListener('pointermove',e=>{
+    const x=(e.clientX/innerWidth-.5),y=(e.clientY/innerHeight-.5);
+    caustics.style.translate=(x*-22)+'px '+(y*-16)+'px';
+  },{passive:true});
+}
+
+// stat counters
+const cio=new IntersectionObserver(es=>es.forEach(en=>{
+  if(!en.isIntersecting)return;cio.unobserve(en.target);
+  const el=en.target,target=+el.dataset.count,dec=+(el.dataset.dec||0),t0=performance.now(),dur=1500;
+  (function step(t){
+    const p=Math.min(1,(t-t0)/dur),e=1-Math.pow(1-p,3),v=target*e;
+    el.textContent=dec?v.toFixed(dec):Math.round(v).toLocaleString();
+    if(p<1)requestAnimationFrame(step);
+  })(t0);
+}),{threshold:.5});
+document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
+</script>
+</body>
+</html>
