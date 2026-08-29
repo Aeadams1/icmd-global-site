@@ -1,0 +1,11 @@
+# ICMD Global — https://www.icmdglobal.com/
+
+User-agent: *
+Allow: /
+
+# The files under /demos/ are portfolio builds for fictional businesses.
+# They are deliberately left crawlable so Google can read the noindex tag
+# inside each one. Do not Disallow them here — a blocked page can still be
+# indexed from links, and Google would never see the noindex.
+
+Sitemap: https://www.icmdglobal.com/sitemap.xml

@@ -3,17 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ICMD Global — Websites That Make Your Phone Ring</title>
-<meta name="description" content="ICMD Global builds fast, mobile-first websites for local businesses. One flat fee, live within days, hosting handled for you.">
+<title>Website Design for Local Businesses | ICMD Global</title>
+<meta name="description" content="Fast, mobile-first websites for local service businesses. One flat fee, live within days, hosting handled. Call (407) 448-2323 for a 15-minute consult.">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<meta name="author" content="ICMD Global LLC">
 <link rel="canonical" href="https://www.icmdglobal.com/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.icmdglobal.com/">
 <meta property="og:site_name" content="ICMD Global">
+<meta property="og:locale" content="en_US">
 <meta property="og:title" content="ICMD Global | Websites That Make Your Phone Ring">
 <meta property="og:description" content="Websites for local businesses that don't have one yet. One flat fee, live within days — hosting handled.">
 <meta property="og:image" content="https://www.icmdglobal.com/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ICMD Global — websites for local businesses">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="ICMD Global | Websites That Make Your Phone Ring">
 <meta name="twitter:description" content="Websites for local businesses that don't have one yet. One flat fee, live within days — hosting handled.">
@@ -382,10 +386,140 @@
     .marquee-track{animation:none}
   }
 </style>
+<!-- Structured data. TODO(Alexander): once the Google Business Profile share link is
+     handy, add it plus any social profiles to the Organization node as "sameAs": [...] .
+     Do not add aggregateRating or review nodes until real client reviews exist. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.icmdglobal.com/#organization",
+      "name": "ICMD Global",
+      "legalName": "ICMD Global LLC",
+      "url": "https://www.icmdglobal.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.icmdglobal.com/apple-touch-icon.png",
+        "width": 180,
+        "height": 180
+      },
+      "image": "https://www.icmdglobal.com/og.png",
+      "description": "ICMD Global builds fast, mobile-first websites for local service businesses — one flat fee, live within days, with hosting and updates handled.",
+      "telephone": "+1-407-448-2323",
+      "areaServed": {
+        "@type": "Country",
+        "name": "United States"
+      },
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "telephone": "+1-407-448-2323",
+          "contactType": "sales",
+          "areaServed": "US",
+          "availableLanguage": [
+            "English"
+          ]
+        }
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.icmdglobal.com/#website",
+      "url": "https://www.icmdglobal.com/",
+      "name": "ICMD Global",
+      "inLanguage": "en-US",
+      "publisher": {
+        "@id": "https://www.icmdglobal.com/#organization"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.icmdglobal.com/#webpage",
+      "url": "https://www.icmdglobal.com/",
+      "name": "Website Design for Local Businesses | ICMD Global",
+      "isPartOf": {
+        "@id": "https://www.icmdglobal.com/#website"
+      },
+      "about": {
+        "@id": "https://www.icmdglobal.com/#organization"
+      },
+      "primaryImageOfPage": "https://www.icmdglobal.com/og.png",
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.icmdglobal.com/#service",
+      "name": "Website design and hosting for local service businesses",
+      "serviceType": "Website design",
+      "provider": {
+        "@id": "https://www.icmdglobal.com/#organization"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "United States"
+      },
+      "audience": {
+        "@type": "BusinessAudience",
+        "name": "Local service business owner-operators"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Websites by trade",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Barber shop website design"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Pool service website design"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Auto detailing website design"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Salon website design"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Lawn care website design"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Catering website design"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <div class="wrap" id="top">
-  <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="assets/hero-space-poster.jpg">
+  <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="assets/hero-space-poster.jpg">
     <source src="assets/hero-space.mp4" type="video/mp4">
   </video>
   <div class="hero-tint"></div>
@@ -705,9 +839,14 @@
   (function () {
     var v = document.querySelector('.hero-video');
     if (!v) return;
-    if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    var c = navigator.connection || {};
+    var thin = c.saveData === true || /^(slow-)?2g$/.test(c.effectiveType || '');
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches || thin) {
       v.removeAttribute('autoplay');
       try { v.pause(); } catch (e) {}
+      /* drop the source so the 1.4 MB clip is never fetched; the poster stands in */
+      var src = v.querySelector('source');
+      if (src) { src.remove(); try { v.load(); } catch (e) {} }
       return;
     }
     var slow = function () { v.playbackRate = 0.5; };
